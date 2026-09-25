@@ -18,6 +18,8 @@ const {
 const ROOT = __dirname;
 const HOST = process.env.MED_HOST || "127.0.0.1";
 const PORT = Number.parseInt(process.env.MED_PORT || "8080", 10) || 8080;
+const CONTOUR_PORT = Number.parseInt(process.env.BRAIN_GTV_PORT || "8011", 10) || 8011;
+const DOSE_PORT = Number.parseInt(process.env.DOSE_PRED_PORT || "8021", 10) || 8021;
 const DATA_FILE = path.join(ROOT, "app-data.json");
 const AI_CONFIG_FILE = path.join(ROOT, "ai-config.json");
 const AI_CHATS_FILE = path.join(ROOT, "ai-chats.json");
@@ -33,18 +35,18 @@ const DOCTOR_TOOL_SERVICES = {
   contouring: {
     key: "contouring",
     name: "Contouring",
-    port: 8011,
+    port: CONTOUR_PORT,
     root: path.resolve(ROOT, "..", "brain_gtv_system"),
     entry: "app.py",
-    env: { BRAIN_GTV_HOST: "127.0.0.1", BRAIN_GTV_PORT: "8011" },
+    env: { BRAIN_GTV_HOST: "127.0.0.1", BRAIN_GTV_PORT: String(CONTOUR_PORT) },
   },
   dosePrediction: {
     key: "dosePrediction",
     name: "Dose prediction",
-    port: 8021,
+    port: DOSE_PORT,
     root: path.resolve(ROOT, "..", "dose_prediction_system"),
     entry: "app.py",
-    env: { DOSE_PRED_HOST: "127.0.0.1", DOSE_PRED_PORT: "8021" },
+    env: { DOSE_PRED_HOST: "127.0.0.1", DOSE_PRED_PORT: String(DOSE_PORT) },
   },
 };
 
@@ -3173,7 +3175,13 @@ async function handleDoctorToolProxy(req, res, pathname, searchParams) {
   try {
     const response = await fetch(targetUrl, requestOptions);
     const contentType = response.headers.get("content-type") || "application/octet-stream";
-    const body = Buffer.from(await response.arrayBuffer());
+    let body = Buffer.from(await response.arrayBuffer());
+    if (contentType.includes("text/html")) {
+      const proxyBase = `/doctor-tool-proxy/${service.key === "contouring" ? "targetContouring" : "dosePrediction"}`;
+      const html = body.toString("utf8").replace(/(["'`])\/(api|static|outputs|result|run-case|run-upload|run-inference)(?=\/|["'`])/g,
+        (_, quote, segment) => `${quote}${proxyBase}/${segment}`);
+      body = Buffer.from(html, "utf8");
+    }
     res.writeHead(response.status, {
       "Content-Type": contentType,
       "Cache-Control": "no-store, max-age=0",

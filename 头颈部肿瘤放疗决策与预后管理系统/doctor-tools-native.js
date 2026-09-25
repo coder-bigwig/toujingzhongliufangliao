@@ -1,11 +1,5 @@
 (() => {
-  function buildToolOrigin(port) {
-    const protocol = window.location.protocol || "http:";
-    const hostname = window.location.hostname || "127.0.0.1";
-    return `${protocol}//${hostname}:${port}`;
-  }
-
-  function buildToolConfig(port, proxyKey) {
+  function buildToolConfig(proxyKey) {
     const proxyBaseUrl = `/doctor-tool-proxy/${proxyKey}`;
     // Route result images through the main service as well. This keeps the
     // workbench usable behind one origin and lets the server report a clear
@@ -16,7 +10,7 @@
       proxyBaseUrl,
       serviceUrl: proxyBaseUrl,
       standaloneUrl: `${assetBaseUrl}/`,
-      portLabel: `${window.location.hostname || "127.0.0.1"}:${port}`,
+      portLabel: `${window.location.host}${proxyBaseUrl}`,
     };
   }
 
@@ -24,12 +18,12 @@
     targetContouring: {
       title: "靶区勾画",
       subtitle: "",
-      ...buildToolConfig("8011", "targetContouring"),
+      ...buildToolConfig("targetContouring"),
     },
     dosePrediction: {
       title: "剂量预测",
       subtitle: "医生端原生工作台，支持演练病例与同格式病例包上传。",
-      ...buildToolConfig("8021", "dosePrediction"),
+      ...buildToolConfig("dosePrediction"),
     },
   };
 
