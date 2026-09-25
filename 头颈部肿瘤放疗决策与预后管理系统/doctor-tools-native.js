@@ -150,7 +150,9 @@
   function getContouringCaseNumber(toolState, caseId) {
     const cases = toolState?.meta?.cases || [];
     const index = cases.findIndex((item) => item.case_id === caseId);
-    return index >= 0 ? index + 1 : null;
+    if (index >= 0) return index + 1;
+    const archivedIndex = (toolState?.meta?.archived_case_ids || []).indexOf(caseId);
+    return archivedIndex >= 0 ? archivedIndex + 1 : null;
   }
 
   function getContouringSelectedCase(toolState, caseId) {
@@ -499,7 +501,9 @@
     const commentary = isPreview
       ? `正在逐层勾画，已生成 ${visibleSlices} / ${totalSlices} 层预览；进度完成后会自动替换为完整评估结果。`
       : summarizeContouringPerformance(summary);
-    const editorMarkup = isPreview || summary.archived ? "" : renderMaskRevisionEditor(summary, tool);
+    const editorMarkup = isPreview || (summary.archived && !summary.archive_slices_available)
+      ? ""
+      : renderMaskRevisionEditor(summary, tool, { readOnly: Boolean(summary.archived) });
     // Final contouring results append the editable mask revision editor: ${renderMaskRevisionEditor(summary, tool)}
 
     return `
@@ -574,23 +578,24 @@
         </section>`;
   }
 
-  function renderMaskRevisionEditor(summary, tool) {
+  function renderMaskRevisionEditor(summary, tool, options = {}) {
     const resultName = summary.result_name || summary.case_id || "current";
     const editorId = `mask-revision-${createSafeDomId(resultName)}`;
+    const readOnly = Boolean(options.readOnly);
     return `
-      <section class="mask-revision-card" data-mask-revision-result="${escapeHtml(resultName)}" data-mask-revision-service="${escapeHtml(tool.serviceUrl)}">
+      <section class="mask-revision-card" data-mask-revision-result="${escapeHtml(resultName)}" data-mask-revision-service="${escapeHtml(tool.serviceUrl)}" data-mask-revision-read-only="${readOnly}">
         <div class="doctor-section-top compact">
           <div>
-            <h3>机器分割修订</h3>
+            <h3>${readOnly ? "历史分层影像与勾画（只读）" : "机器分割修订"}</h3>
           </div>
-          <div class="doctor-inline-actions mask-revision-toolbar">
+          ${readOnly ? "" : `<div class="doctor-inline-actions mask-revision-toolbar">
             <button class="secondary-button mask-revision-tool active" type="button" data-mask-revision-action="add" data-editor-target="${escapeHtml(editorId)}">画笔</button>
             <button class="secondary-button mask-revision-tool" type="button" data-mask-revision-action="erase" data-editor-target="${escapeHtml(editorId)}">擦除</button>
             <button class="secondary-button" type="button" data-mask-revision-action="undo" data-editor-target="${escapeHtml(editorId)}">撤销</button>
             <button class="secondary-button" type="button" data-mask-revision-action="redo" data-editor-target="${escapeHtml(editorId)}">重做</button>
             <button class="secondary-button" type="button" data-mask-revision-action="reset-slice" data-editor-target="${escapeHtml(editorId)}">重置本层</button>
             <button class="primary-action" type="button" data-mask-revision-action="save" data-editor-target="${escapeHtml(editorId)}">保存修订</button>
-          </div>
+          </div>`}
         </div>
         <div class="mask-revision-zoom">
           <button class="secondary-button" type="button" data-mask-revision-action="zoom-out" data-editor-target="${escapeHtml(editorId)}">缩小</button>
@@ -604,10 +609,10 @@
             <span>层面</span>
             <input type="range" min="0" max="0" value="0" disabled data-mask-revision-slice data-editor-target="${escapeHtml(editorId)}">
           </label>
-          <label>
+          ${readOnly ? "" : `<label>
             <span>笔粗</span>
             <input type="range" min="1" max="28" value="6" data-mask-revision-brush data-editor-target="${escapeHtml(editorId)}">
-          </label>
+          </label>`}
           <label>
             <span>透明度</span>
             <input type="range" min="20" max="95" value="72" data-mask-revision-opacity data-editor-target="${escapeHtml(editorId)}">
@@ -1490,6 +1495,7 @@
         viewport,
         stage,
         resultName: canvas.dataset.resultName || card.dataset.maskRevisionResult || "current",
+        readOnly: card.dataset.maskRevisionReadOnly === "true",
         tool: "add",
         brushSize: 6,
         opacity: 0.72,
@@ -1508,6 +1514,8 @@
       };
       maskRevisionEditors.set(canvas.id, editor);
       loadMaskRevisionMeta(editor);
+
+      if (editor.readOnly) return;
 
       const startStroke = (event) => {
         if (event.pointerId !== undefined) canvas.setPointerCapture?.(event.pointerId);
@@ -1544,6 +1552,8 @@
     if (!toolState.meta) return renderLoading("targetContouring");
     const profiles = toolState.meta.profiles || [];
     const cases = toolState.meta.cases || [];
+    const archivedCaseIds = toolState.meta.archived_case_ids || [];
+    const modelUnavailable = toolState.meta.status === "model_unavailable";
     const selectedProfile = profiles.find((item) => item.profile_id === toolState.selectedProfileId) || profiles[0] || null;
     return `
       <div class="panel-head">
@@ -1568,6 +1578,7 @@
 
         <section class="doctor-stat-grid">
           <article class="doctor-stat-card"><span>病例总数</span><strong>${escapeHtml(String(toolState.meta.case_count || cases.length || 0))}</strong></article>
+          ${archivedCaseIds.length ? `<article class="doctor-stat-card"><span>历史病例索引</span><strong>${archivedCaseIds.length}</strong></article>` : ""}
           <article class="doctor-stat-card"><span>可用模型</span><strong>${escapeHtml(String(toolState.meta.model_count || 0))}</strong></article>
           <article class="doctor-stat-card"><span>推荐引擎</span><strong>${escapeHtml(selectedProfile?.name || "平衡型")}</strong></article>
         </section>
@@ -1589,7 +1600,7 @@
                 ${profiles.map((item) => `<option value="${escapeHtml(item.profile_id)}" ${item.profile_id === toolState.selectedProfileId ? "selected" : ""}>${escapeHtml(item.name)}</option>`).join("")}
               </select>
             </label>
-            <button class="primary-action" type="submit" ${toolState.running ? "disabled" : ""}>${toolState.running ? "处理中..." : "开始勾画"}</button>
+            <button class="primary-action" type="submit" ${toolState.running || modelUnavailable ? "disabled" : ""}>${toolState.running ? "处理中..." : modelUnavailable ? "模型未恢复" : "开始勾画"}</button>
           </form>
           <div class="doctor-chip-grid">
             ${cases.map((item, index) => `<button class="doctor-chip${item.case_id === toolState.selectedCaseId ? " active" : ""}" type="button" data-doctor-case-id="${escapeHtml(item.case_id)}" title="${escapeHtml(item.case_id)}" ${toolState.running ? "disabled" : ""}>${index + 1}</button>`).join("")}
@@ -1611,10 +1622,15 @@
                 ${profiles.map((item) => `<option value="${escapeHtml(item.profile_id)}" ${item.profile_id === toolState.selectedProfileId ? "selected" : ""}>${escapeHtml(item.name)}</option>`).join("")}
               </select>
             </label>
-            <button class="primary-action" type="submit" ${toolState.running ? "disabled" : ""}>${toolState.running ? "处理中..." : "上传并勾画"}</button>
+            <button class="primary-action" type="submit" ${toolState.running || modelUnavailable ? "disabled" : ""}>${toolState.running ? "处理中..." : modelUnavailable ? "模型未恢复" : "上传并勾画"}</button>
           </form>
           <p class="doctor-inline-hint" id="contouring-upload-name">未选择上传文件</p>
         </section>
+
+        ${archivedCaseIds.length ? `<section class="doctor-native-card">
+          <div class="doctor-section-top"><div><h3>原站历史病例索引</h3><p>已恢复 ${archivedCaseIds.length} 个病例编号；目前仅第 ${getContouringCaseNumber(toolState, toolState.summary?.case_id) || 19} 例保留可查看的历史勾画结果，其余病例影像和模型未恢复。</p></div></div>
+          <div class="doctor-chip-grid">${archivedCaseIds.map((id, index) => `<span class="doctor-chip${id === toolState.summary?.case_id ? " active" : ""}" title="${escapeHtml(id)}">${index + 1}</span>`).join("")}</div>
+        </section>` : ""}
 
         ${renderProgress("targetContouring")}
         ${toolState.summary ? renderContouringResult(toolState.summary) : `

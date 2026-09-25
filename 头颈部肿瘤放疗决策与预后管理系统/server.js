@@ -3087,6 +3087,14 @@ function serveStaticFile(res, filePath) {
 
 function serveStatic(req, res, pathname) {
   const safePath = pathname === "/" ? "/index.html" : pathname;
+  if (
+    /^\/(?:app-data|ai-config|ai-chats|ai-last-response|radiomics-results)\.json(?:\.|$)/.test(safePath) ||
+    safePath.startsWith("/radiomics-images/") ||
+    safePath.startsWith("/.")
+  ) {
+    sendText(res, 404, "Not Found");
+    return;
+  }
   if (safePath.startsWith("/uploads/")) {
     const session = getSession(req);
     if (!session) {
@@ -3940,6 +3948,19 @@ const server = http.createServer(async (req, res) => {
     }
     const payload = loadRadiomicsPrognosis();
     sendJson(res, 200, { ok: true, ...payload });
+    return;
+  }
+
+  const radiomicsImage = req.method === "GET"
+    ? pathname.match(/^\/api\/radiomics-prognosis\/(mri-preview|zscore)\/([A-Za-z0-9_.-]+\.png)$/)
+    : null;
+  if (radiomicsImage) {
+    const session = requireSession(req, res, "doctor");
+    if (!session) {
+      return;
+    }
+    const imagePath = path.join(ROOT, "radiomics-images", radiomicsImage[1], radiomicsImage[2]);
+    serveStaticFile(res, imagePath);
     return;
   }
 

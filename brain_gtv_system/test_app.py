@@ -40,6 +40,28 @@ class ContouringServiceTests(unittest.TestCase):
         self.assertEqual(image.mimetype, 'image/png')
         image.close()
 
+    def test_archived_slices_are_read_only_and_match_the_result(self):
+        name = '700_0704728_balanced_v1_96f10bda'
+        available = (Path(__file__).resolve().parent / 'archived-slices' / name / 'meta.json').is_file()
+        summary = self.client.get('/api/meta').get_json()['latest_result_summary']
+        if not available:
+            self.assertFalse(summary and summary['archive_slices_available'])
+            self.assertEqual(self.client.get(f'/api/revision/{name}').status_code, 404)
+            return
+        self.assertTrue(summary['archive_slices_available'])
+        meta = self.client.get(f'/api/revision/{name}')
+        self.assertEqual(meta.status_code, 200)
+        self.assertEqual(meta.get_json()['slice_count'], 22)
+        slice_response = self.client.get(f'/api/revision/{name}/slice/3')
+        self.assertEqual(slice_response.status_code, 200)
+        slice_data = slice_response.get_json()
+        self.assertEqual(slice_data['z'], 3)
+        self.assertEqual(len(slice_data['image']), slice_data['height'])
+        self.assertEqual(len(slice_data['mask']), slice_data['height'])
+        self.assertEqual(self.client.get(f'/api/revision/{name}/slice/22').status_code, 404)
+        self.assertEqual(self.client.get('/api/revision/another/slice/3').status_code, 404)
+        self.assertEqual(self.client.post(f'/api/revision/{name}/save').status_code, 404)
+
 
 if __name__ == '__main__':
     unittest.main()

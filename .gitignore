@@ -12,3 +12,7 @@
 **/video-analysis/
 **/node_modules/
 **/.venv/
+**/radiomics-results.json
+**/radiomics-images/
+**/archived-slices/
+**/archived-cases.json
