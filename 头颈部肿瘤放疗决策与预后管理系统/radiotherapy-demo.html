@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>头颈肿瘤放疗决策与预后管理一站式平台</title>
+  <style>
+    :root {
+      --bg: #eef4fb;
+      --panel: rgba(255,255,255,0.96);
+      --line: rgba(205, 219, 238, 0.92);
+      --deep: #20324c;
+      --soft: #6f829d;
+      --accent: #2f6fca;
+      --accent-soft: #edf5ff;
+      --danger: #b14a31;
+      --danger-soft: #fff0eb;
+      --shadow: 0 8px 20px rgba(25, 48, 82, 0.06);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+      color: var(--deep);
+      background:
+        radial-gradient(circle at top left, rgba(169, 201, 244, 0.24), transparent 28%),
+        radial-gradient(circle at top right, rgba(225, 236, 250, 0.58), transparent 25%),
+        linear-gradient(180deg, #f7fbff 0%, var(--bg) 100%);
+    }
+    .page { max-width: 1480px; margin: 0 auto; padding: 16px 18px; display: grid; gap: 16px; }
+    .hero, .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow); backdrop-filter: none; }
+    .hero { padding: 26px 28px; }
+    .hero h1 { margin: 0 0 10px; font-size: 34px; }
+    .hero p, .muted { margin: 0; color: var(--soft); line-height: 1.8; }
+    .toolbar, .badges, .actions, .filters { display: flex; flex-wrap: wrap; gap: 10px; }
+    .layout { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.95fr); gap: 18px; }
+    .panel { padding: 18px; display: grid; gap: 14px; align-content: start; }
+    .section-head h2, .section-head h3 { margin: 0 0 6px; }
+    .section-head p { margin: 0; color: var(--soft); line-height: 1.7; }
+    .workspace-panel { gap: 14px; }
+    .workspace-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .workspace-head h3 { margin: 0; font-size: 22px; }
+    .workspace-head .helper {
+      color: var(--soft);
+      font-size: 13px;
+      line-height: 1.7;
+      text-align: right;
+    }
+    .workspace-card {
+      border: 1px solid rgba(205, 219, 238, 0.96);
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,251,255,0.96));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.78);
+      padding: 16px;
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+    .field-kicker {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      min-height: 30px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(237, 245, 255, 0.94);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .badge, .chip {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 34px; padding: 0 14px; border-radius: 999px;
+      border: 1px solid var(--line); background: var(--accent-soft); color: var(--accent);
+      font-size: 13px; font-weight: 700;
+    }
+    button, input, textarea { font: inherit; border-radius: 18px; border: 1px solid var(--line); outline: none; }
+    button { cursor: pointer; padding: 12px 18px; background: #fff; color: var(--deep); }
+    button.primary { background: linear-gradient(135deg, #78a7e8, #2f6fca); color: #fff; border-color: transparent; }
+    button:disabled { opacity: 0.6; cursor: wait; }
+    input, textarea { width: 100%; padding: 14px 16px; background: rgba(250, 252, 255, 0.98); color: var(--deep); }
+    textarea {
+      min-height: 220px;
+      resize: vertical;
+      line-height: 1.8;
+      border-radius: 22px;
+      padding: 18px 18px;
+      border-color: rgba(205, 219, 238, 0.96);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.74);
+    }
+    textarea:focus, input:focus {
+      border-color: rgba(126, 168, 222, 0.96);
+      box-shadow: 0 0 0 4px rgba(47, 111, 202, 0.12);
+    }
+    .workspace-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .action-hint {
+      color: var(--soft);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+    .action-buttons {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .action-buttons .primary {
+      min-width: 132px;
+      min-height: 48px;
+      font-weight: 700;
+      box-shadow: 0 14px 28px rgba(47, 111, 202, 0.18);
+    }
+    .analysis-progress {
+      display: grid;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(216, 226, 240, 0.96);
+      background: rgba(248, 251, 255, 0.98);
+    }
+    .analysis-progress-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--deep);
+    }
+    .analysis-progress-head strong {
+      font-size: 15px;
+    }
+    .analysis-progress-head span {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .analysis-progress-track {
+      position: relative;
+      height: 12px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(219, 230, 245, 0.92);
+    }
+    .analysis-progress-track span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #a8c9f4 0%, #6f9fda 54%, #2f6fca 100%);
+      box-shadow: 0 8px 18px rgba(47, 111, 202, 0.2);
+      transition: width 180ms ease;
+    }
+    .analysis-progress-text {
+      color: var(--soft);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .login { display: grid; gap: 12px; max-width: 460px; }
+    .hidden { display: none !important; }
+    .examples { display: grid; gap: 12px; max-height: 980px; overflow: auto; padding-right: 4px; }
+    .card { border: 1px solid var(--line); border-radius: 18px; padding: 16px; background: #fff; display: grid; gap: 10px; box-shadow: none; }
+    .card.active { border-color: rgba(126, 168, 222, 0.92); box-shadow: 0 8px 18px rgba(47, 111, 202, 0.08); }
+    .card p { margin: 0; color: var(--soft); line-height: 1.7; }
+    .result-hero {
+      padding: 4px 0 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      display: grid;
+      gap: 8px;
+    }
+    .result-hero.danger {
+      color: var(--deep);
+    }
+    .result-title {
+      display: grid;
+      gap: 6px;
+    }
+    .result-heading {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.3;
+      color: var(--deep);
+    }
+    .result-summary {
+      margin: 0;
+      color: var(--soft);
+      line-height: 1.8;
+    }
+    .result-section {
+      display: grid;
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(216, 225, 236, 0.96);
+    }
+    .grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .stack { display: grid; gap: 10px; }
+    .item { border: 1px solid rgba(216, 226, 240, 0.96); border-radius: 14px; padding: 12px 14px; background: rgba(248, 251, 255, 0.98); }
+    pre { margin: 0; white-space: pre-wrap; word-break: break-word; border-radius: 14px; border: 1px solid rgba(216,226,240,0.96); background: rgba(248,251,255,0.98); padding: 14px; line-height: 1.75; font-family: "Cascadia Code", "Consolas", monospace; font-size: 13px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border-bottom: 1px solid rgba(228, 235, 245, 0.92); text-align: left; padding: 12px 10px; vertical-align: top; }
+    .notice { padding: 12px 14px; border-radius: 14px; background: rgba(248, 251, 255, 0.98); color: #1f4f9e; border: 1px solid rgba(207, 224, 245, 0.92); }
+    .notice.error { background: var(--danger-soft); color: var(--danger); border-color: rgba(235, 196, 183, 0.94); }
+    body.embedded { background: transparent; }
+    body.embedded .page { max-width: none; padding: 0; gap: 12px; }
+    body.embedded .hero { padding: 18px 20px; }
+    body.embedded .hero h1 { font-size: 26px; }
+    body.embedded textarea { min-height: 200px; }
+    @media (max-width: 1080px) {
+      .layout, .grid2 { grid-template-columns: 1fr; }
+      .workspace-head, .workspace-actions { align-items: flex-start; }
+      .workspace-head { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div id="demoRoot"></div>
+  <script src="/radiotherapy-demo.js?v=20260621-radiotherapy-ui1"></script>
+</body>
+</html>

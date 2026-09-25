@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>脑部靶区勾画系统</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="">
+  <main class="page">
+    <section class="panel workbench">
+      <div class="section-head">
+        <div>
+          <h1>脑部靶区勾画工作台</h1>
+        </div>
+      </div>
+
+      <form id="case-form" class="workbench-form" action="/run-case" method="post">
+        <div class="control-grid">
+          <label class="select-label">
+            <span>病例编号</span>
+            <select id="case-select" name="case_id">
+              
+              <option value="101" selected>101</option>
+              
+              <option value="105" >105</option>
+              
+              <option value="120" >120</option>
+              
+              <option value="122" >122</option>
+              
+              <option value="126" >126</option>
+              
+              <option value="131" >131</option>
+              
+              <option value="135" >135</option>
+              
+              <option value="137" >137</option>
+              
+              <option value="144" >144</option>
+              
+              <option value="149" >149</option>
+              
+              <option value="684_1008703" >684_1008703</option>
+              
+              <option value="686_1010151" >686_1010151</option>
+              
+              <option value="687_1011738" >687_1011738</option>
+              
+              <option value="689_1017616" >689_1017616</option>
+              
+              <option value="690_0624706" >690_0624706</option>
+              
+              <option value="693_1018652" >693_1018652</option>
+              
+              <option value="694_1014641" >694_1014641</option>
+              
+              <option value="699_1021336" >699_1021336</option>
+              
+              <option value="700_0704728" >700_0704728</option>
+              
+              <option value="701_1015764" >701_1015764</option>
+              
+              <option value="706_0986157" >706_0986157</option>
+              
+              <option value="707_1025072" >707_1025072</option>
+              
+              <option value="713_1025713" >713_1025713</option>
+              
+              <option value="717_1028580" >717_1028580</option>
+              
+              <option value="720_1023311" >720_1023311</option>
+              
+              <option value="723_1031470" >723_1031470</option>
+              
+              <option value="725_1029321" >725_1029321</option>
+              
+              <option value="727_1026958" >727_1026958</option>
+              
+              <option value="992_10159047" >992_10159047</option>
+              
+            </select>
+          </label>
+
+          <label class="select-label">
+            <span>勾画引擎</span>
+            <select id="workbench-profile-select" name="profile_id">
+              
+              <option value="balanced_v1" selected>平衡型（推荐）</option>
+              
+              <option value="compact_v1" >紧致型（更保守）</option>
+              
+            </select>
+          </label>
+
+          <button class="primary-action" type="submit" >开始勾画</button>
+        </div>
+      </form>
+
+      <div class="directory-panel">
+        <div class="directory-head">
+          <h3>病例编号目录</h3>
+          <p class="hint">点击编号可快速切换到对应病例。</p>
+        </div>
+        <div class="id-strip">
+          
+          <button type="button" class="id-chip" data-jump-case="101">101</button>
+          
+          <button type="button" class="id-chip" data-jump-case="105">105</button>
+          
+          <button type="button" class="id-chip" data-jump-case="120">120</button>
+          
+          <button type="button" class="id-chip" data-jump-case="122">122</button>
+          
+          <button type="button" class="id-chip" data-jump-case="126">126</button>
+          
+          <button type="button" class="id-chip" data-jump-case="131">131</button>
+          
+          <button type="button" class="id-chip" data-jump-case="135">135</button>
+          
+          <button type="button" class="id-chip" data-jump-case="137">137</button>
+          
+          <button type="button" class="id-chip" data-jump-case="144">144</button>
+          
+          <button type="button" class="id-chip" data-jump-case="149">149</button>
+          
+          <button type="button" class="id-chip" data-jump-case="684_1008703">684_1008703</button>
+          
+          <button type="button" class="id-chip" data-jump-case="686_1010151">686_1010151</button>
+          
+          <button type="button" class="id-chip" data-jump-case="687_1011738">687_1011738</button>
+          
+          <button type="button" class="id-chip" data-jump-case="689_1017616">689_1017616</button>
+          
+          <button type="button" class="id-chip" data-jump-case="690_0624706">690_0624706</button>
+          
+          <button type="button" class="id-chip" data-jump-case="693_1018652">693_1018652</button>
+          
+          <button type="button" class="id-chip" data-jump-case="694_1014641">694_1014641</button>
+          
+          <button type="button" class="id-chip" data-jump-case="699_1021336">699_1021336</button>
+          
+          <button type="button" class="id-chip" data-jump-case="700_0704728">700_0704728</button>
+          
+          <button type="button" class="id-chip" data-jump-case="701_1015764">701_1015764</button>
+          
+          <button type="button" class="id-chip" data-jump-case="706_0986157">706_0986157</button>
+          
+          <button type="button" class="id-chip" data-jump-case="707_1025072">707_1025072</button>
+          
+          <button type="button" class="id-chip" data-jump-case="713_1025713">713_1025713</button>
+          
+          <button type="button" class="id-chip" data-jump-case="717_1028580">717_1028580</button>
+          
+          <button type="button" class="id-chip" data-jump-case="720_1023311">720_1023311</button>
+          
+          <button type="button" class="id-chip" data-jump-case="723_1031470">723_1031470</button>
+          
+          <button type="button" class="id-chip" data-jump-case="725_1029321">725_1029321</button>
+          
+          <button type="button" class="id-chip" data-jump-case="727_1026958">727_1026958</button>
+          
+          <button type="button" class="id-chip" data-jump-case="992_10159047">992_10159047</button>
+          
+        </div>
+      </div>
+
+      
+    </section>
+
+    <section class="panel">
+      <h2>NIfTI 上传勾画</h2>
+      <p class="hint">上传单个 <code>.nii.gz</code> 影像体数据，系统会自动完成推理，并把靶区结果显示在下方结果区。</p>
+      <form id="upload-form" class="upload-form" action="/run-upload" method="post" enctype="multipart/form-data">
+        <input id="upload-file-input" type="file" name="image_file" accept=".nii,.gz,.nii.gz" required>
+        <label class="select-label inline">
+          <span>勾画引擎</span>
+          <select id="upload-profile-select" name="profile_id">
+            
+            <option value="balanced_v1" selected>平衡型（推荐）</option>
+            
+            <option value="compact_v1" >紧致型（更保守）</option>
+            
+          </select>
+        </label>
+        <button type="submit" >上传并勾画</button>
+      </form>
+    </section>
+
+    <section id="inline-result-panel" class="panel inline-result hidden">
+      <div class="inline-result-head">
+        <div>
+          <h2 id="inline-result-title">靶区结果</h2>
+          <p id="inline-result-subtitle" class="hint">结果会显示在这里。</p>
+        </div>
+        <button id="inline-open-new" class="inline-open-button" type="button">新页打开</button>
+      </div>
+
+      <div id="progress-shell" class="progress-shell hidden">
+        <div class="progress-meta">
+          <span id="progress-stage" class="progress-stage">等待开始</span>
+          <strong id="progress-percent" class="progress-percent">0%</strong>
+        </div>
+        <div class="progress-track">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+        <div class="progress-steps">
+          <span class="progress-step" data-progress-step="0">准备任务</span>
+          <span class="progress-step" data-progress-step="1">读取影像</span>
+          <span class="progress-step" data-progress-step="2">模型推理</span>
+          <span class="progress-step" data-progress-step="3">生成结果</span>
+        </div>
+      </div>
+
+      <div id="inline-result-status" class="result-status visible">等待开始勾画...</div>
+      <div class="inline-frame-shell">
+        <iframe id="inline-result-frame" class="result-frame inline-result-frame" title="靶区结果"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const caseForm = document.getElementById("case-form");
+    const uploadForm = document.getElementById("upload-form");
+    const caseSelect = document.getElementById("case-select");
+    const uploadFileInput = document.getElementById("upload-file-input");
+    const profileSelect = document.getElementById("workbench-profile-select");
+    const uploadProfileSelect = document.getElementById("upload-profile-select");
+    const chips = document.querySelectorAll("[data-jump-case]");
+
+    const inlineResultPanel = document.getElementById("inline-result-panel");
+    const inlineResultTitle = document.getElementById("inline-result-title");
+    const inlineResultSubtitle = document.getElementById("inline-result-subtitle");
+    const inlineResultStatus = document.getElementById("inline-result-status");
+    const inlineResultFrame = document.getElementById("inline-result-frame");
+    const inlineOpenNew = document.getElementById("inline-open-new");
+
+    const progressShell = document.getElementById("progress-shell");
+    const progressBar = document.getElementById("progress-bar");
+    const progressPercent = document.getElementById("progress-percent");
+    const progressStage = document.getElementById("progress-stage");
+    const progressSteps = Array.from(document.querySelectorAll("[data-progress-step]"));
+
+    let latestResultUrl = "";
+    let progressTimer = null;
+    let currentProgress = 0;
+
+    const stageConfig = [
+      { label: "准备任务", threshold: 10 },
+      { label: "读取影像", threshold: 30 },
+      { label: "模型推理", threshold: 62 },
+      { label: "生成结果", threshold: 86 },
+    ];
+
+    function updateChipState() {
+      const selectedValue = caseSelect.value;
+      chips.forEach((chip) => {
+        chip.classList.toggle("active", chip.dataset.jumpCase === selectedValue);
+      });
+    }
+
+    function showInlineResult(titleText, subtitleText) {
+      inlineResultTitle.textContent = titleText;
+      inlineResultSubtitle.textContent = subtitleText;
+      inlineResultPanel.classList.remove("hidden");
+      inlineResultPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function updateProgressUi(value, label) {
+      progressBar.style.width = `${value}%`;
+      progressPercent.textContent = `${Math.round(value)}%`;
+      progressStage.textContent = label;
+
+      progressSteps.forEach((step, index) => {
+        const isCompleted = value >= stageConfig[index].threshold + 12 || value >= 100;
+        const isActive = !isCompleted && label === stageConfig[index].label;
+        step.classList.toggle("completed", isCompleted);
+        step.classList.toggle("active", isActive);
+      });
+    }
+
+    function startProgressAnimation() {
+      clearInterval(progressTimer);
+      progressShell.classList.remove("hidden", "done", "error");
+      currentProgress = 6;
+      updateProgressUi(currentProgress, stageConfig[0].label);
+
+      progressTimer = window.setInterval(() => {
+        if (currentProgress >= 92) {
+          return;
+        }
+
+        let stepSize = 2;
+        if (currentProgress < 24) {
+          stepSize = 7;
+        } else if (currentProgress < 52) {
+          stepSize = 4.5;
+        } else if (currentProgress < 78) {
+          stepSize = 2.5;
+        }
+
+        currentProgress = Math.min(92, currentProgress + stepSize);
+        const currentStage = [...stageConfig].reverse().find((stage) => currentProgress >= stage.threshold) || stageConfig[0];
+        updateProgressUi(currentProgress, currentStage.label);
+      }, 520);
+    }
+
+    function completeProgressAnimation() {
+      clearInterval(progressTimer);
+      currentProgress = 100;
+      progressShell.classList.remove("error");
+      progressShell.classList.add("done");
+      updateProgressUi(currentProgress, "勾画完成");
+    }
+
+    function failProgressAnimation() {
+      clearInterval(progressTimer);
+      progressShell.classList.remove("done");
+      progressShell.classList.add("error");
+      progressBar.style.width = `${Math.max(currentProgress, 18)}%`;
+      progressPercent.textContent = "失败";
+      progressStage.textContent = "勾画失败";
+      progressSteps.forEach((step) => {
+        step.classList.remove("active", "completed");
+      });
+    }
+
+    function setInlineLoading(message) {
+      inlineResultStatus.textContent = message;
+      inlineResultStatus.classList.remove("error");
+      inlineResultStatus.classList.add("visible");
+      inlineResultFrame.removeAttribute("src");
+      startProgressAnimation();
+    }
+
+    function setInlineError(message) {
+      inlineResultStatus.textContent = message;
+      inlineResultStatus.classList.add("visible", "error");
+      inlineResultFrame.removeAttribute("src");
+      failProgressAnimation();
+    }
+
+    async function submitToInlineResult(form, titleText, subtitleText) {
+      const submitButton = form.querySelector('button[type="submit"]');
+      const originalText = submitButton.textContent;
+      submitButton.disabled = true;
+      submitButton.textContent = "处理中...";
+
+      showInlineResult(titleText, subtitleText);
+      setInlineLoading("正在勾画，请稍候...");
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { "X-Requested-With": "fetch" },
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        latestResultUrl = response.url;
+        inlineOpenNew.disabled = false;
+        inlineResultStatus.textContent = "结果已生成，正在载入预览。";
+        inlineResultStatus.classList.remove("error");
+        inlineResultStatus.classList.add("visible");
+        completeProgressAnimation();
+        inlineResultFrame.src = response.url.includes("?")
+          ? `${response.url}&embedded=1`
+          : `${response.url}?embedded=1`;
+      } catch (error) {
+        setInlineError(`勾画失败：${error.message}`);
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = originalText;
+      }
+    }
+
+    caseForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      submitToInlineResult(caseForm, `病例 ${caseSelect.value} 靶区结果`, "当前结果区显示的是病例勾画结果。");
+    });
+
+    uploadForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const fileName = uploadFileInput.files.length ? uploadFileInput.files[0].name : "上传影像";
+      submitToInlineResult(uploadForm, `${fileName} 靶区结果`, "当前结果区显示的是上传影像的勾画结果。");
+    });
+
+    inlineResultFrame.addEventListener("load", () => {
+      if (inlineResultFrame.src) {
+        inlineResultStatus.classList.remove("visible");
+      }
+    });
+
+    inlineOpenNew.addEventListener("click", () => {
+      if (latestResultUrl) {
+        window.open(latestResultUrl, "_blank", "noopener,noreferrer");
+      }
+    });
+
+    caseSelect.addEventListener("change", updateChipState);
+
+    chips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        caseSelect.value = chip.dataset.jumpCase;
+        updateChipState();
+      });
+    });
+
+    updateChipState();
+    inlineOpenNew.disabled = true;
+  </script>
+</body>
+</html>

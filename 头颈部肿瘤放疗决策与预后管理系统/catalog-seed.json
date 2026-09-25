@@ -1,0 +1,591 @@
+{
+  "products": [
+    {
+      "id": "PROD-MALL-MERCHANT-01",
+      "skuCode": "MERCHANT-SKU-0001",
+      "name": "准愈 BL002 双歧杆菌益生菌粉",
+      "brand": "准愈",
+      "storeName": "商家上架",
+      "originLabel": "正式商品",
+      "shippingLabel": "现货速配",
+      "promoText": "",
+      "category": "益生菌",
+      "unit": "件",
+      "price": 178,
+      "originalPrice": 198,
+      "stock": 50,
+      "sales": 0,
+      "lowStockThreshold": 5,
+      "status": "listed",
+      "summary": "双歧杆菌益生菌补充产品。",
+      "description": "来源文件夹：准愈两歧双歧杆菌BL002新一代益生菌酸樱桃柠檬酸粉非泡腾片尿酸。",
+      "tags": [
+        "益生菌",
+        "双歧杆菌",
+        "商家上架"
+      ],
+      "featured": true,
+      "coverTone": "益生菌",
+      "coverImage": "/uploads/mall-products/merchant-product-01.png",
+      "images": [
+        "/uploads/mall-products/merchant-product-01.png"
+      ],
+      "createdAt": "2026-04-12T08:07:09.6516072Z",
+      "updatedAt": "2026-04-12T08:07:09.6586027Z"
+    },
+    {
+      "id": "PROD-MALL-MERCHANT-02",
+      "skuCode": "MERCHANT-SKU-0002",
+      "name": "赛君乐 富硒益生菌",
+      "brand": "赛君乐",
+      "storeName": "商家上架",
+      "originLabel": "正式商品",
+      "shippingLabel": "现货速配",
+      "promoText": "",
+      "category": "益生菌",
+      "unit": "件",
+      "price": 153.26,
+      "originalPrice": 169,
+      "stock": 50,
+      "sales": 0,
+      "lowStockThreshold": 5,
+      "status": "listed",
+      "summary": "富硒益生菌营养补充产品。",
+      "description": "来源文件夹：赛君乐富硒益生菌放化疗肠胃便秘术后恢复营养品免疫力长双歧杆菌。",
+      "tags": [
+        "益生菌",
+        "富硒",
+        "商家上架"
+      ],
+      "featured": true,
+      "coverTone": "益生菌",
+      "coverImage": "/uploads/mall-products/merchant-product-02.png",
+      "images": [
+        "/uploads/mall-products/merchant-product-02.png"
+      ],
+      "createdAt": "2026-04-12T08:07:09.675602Z",
+      "updatedAt": "2026-04-12T08:07:09.675602Z"
+    },
+    {
+      "id": "PROD-MALL-MERCHANT-03",
+      "skuCode": "MERCHANT-SKU-0003",
+      "name": "同仁堂 氨基酸蛋白粉",
+      "brand": "同仁堂",
+      "storeName": "商家上架",
+      "originLabel": "正式商品",
+      "shippingLabel": "现货速配",
+      "promoText": "",
+      "category": "蛋白营养",
+      "unit": "件",
+      "price": 149,
+      "originalPrice": 169,
+      "stock": 50,
+      "sales": 0,
+      "lowStockThreshold": 5,
+      "status": "listed",
+      "summary": "氨基酸蛋白营养补充产品。",
+      "description": "来源文件夹：北京同仁堂氨基酸蛋白粉免疫乳清中老年人增强高钙营养官方正品。",
+      "tags": [
+        "蛋白粉",
+        "营养补给",
+        "商家上架"
+      ],
+      "featured": true,
+      "coverTone": "蛋白营养",
+      "coverImage": "/uploads/mall-products/merchant-product-03.png",
+      "images": [
+        "/uploads/mall-products/merchant-product-03.png"
+      ],
+      "createdAt": "2026-04-12T08:07:09.6789941Z",
+      "updatedAt": "2026-04-12T08:07:09.6789941Z"
+    },
+    {
+      "id": "PROD-MALL-MERCHANT-04",
+      "skuCode": "MERCHANT-SKU-0004",
+      "name": "贝特恩康恒 术后蛋白质粉",
+      "brand": "贝特恩康恒",
+      "storeName": "商家上架",
+      "originLabel": "正式商品",
+      "shippingLabel": "现货速配",
+      "promoText": "",
+      "category": "蛋白营养",
+      "unit": "件",
+      "price": 269,
+      "originalPrice": 299,
+      "stock": 50,
+      "sales": 0,
+      "lowStockThreshold": 5,
+      "status": "listed",
+      "summary": "术后恢复蛋白营养补充产品。",
+      "description": "来源文件夹：蛋白质粉术后恢复全营养品中老年人女性免疫力体质成人贝特恩康恒。",
+      "tags": [
+        "蛋白粉",
+        "术后恢复",
+        "商家上架"
+      ],
+      "featured": true,
+      "coverTone": "蛋白营养",
+      "coverImage": "/uploads/mall-products/merchant-product-04.png",
+      "images": [
+        "/uploads/mall-products/merchant-product-04.png"
+      ],
+      "createdAt": "2026-04-12T08:07:09.6809922Z",
+      "updatedAt": "2026-04-12T08:07:09.6809922Z"
+    },
+    {
+      "id": "PROD-MALL-MERCHANT-05",
+      "skuCode": "MERCHANT-SKU-0005",
+      "name": "康比特 分离乳清蛋白粉",
+      "brand": "康比特",
+      "storeName": "商家上架",
+      "originLabel": "正式商品",
+      "shippingLabel": "现货速配",
+      "promoText": "",
+      "category": "蛋白营养",
+      "unit": "件",
+      "price": 258,
+      "originalPrice": 288,
+      "stock": 50,
+      "sales": 0,
+      "lowStockThreshold": 5,
+      "status": "listed",
+      "summary": "分离乳清蛋白营养补充产品。",
+      "description": "来源文件夹：康比特蛋白粉分离乳清蛋白粉健身增肌男性女性低脂正品官方旗舰店。",
+      "tags": [
+        "乳清蛋白",
+        "蛋白粉",
+        "商家上架"
+      ],
+      "featured": false,
+      "coverTone": "蛋白营养",
+      "coverImage": "/uploads/mall-products/merchant-product-05.png",
+      "images": [
+        "/uploads/mall-products/merchant-product-05.png"
+      ],
+      "createdAt": "2026-04-12T08:07:09.6839971Z",
+      "updatedAt": "2026-04-12T08:07:09.6839971Z"
+    },
+    {
+      "id": "PROD-MALL-MERCHANT-06",
+      "skuCode": "MERCHANT-SKU-0006",
+      "name": "速益安 水解乳清营养粉",
+      "brand": "速益安",
+      "storeName": "商家上架",
+      "originLabel": "正式商品",
+      "shippingLabel": "现货速配",
+      "promoText": "",
+      "category": "蛋白营养",
+      "unit": "件",
+      "price": 1380,
+      "originalPrice": 1499,
+      "stock": 50,
+      "sales": 0,
+      "lowStockThreshold": 5,
+      "status": "listed",
+      "summary": "水解乳清营养粉产品。",
+      "description": "来源文件夹：速益安营养粉水解乳清蛋白粉分离乳清辅助恢复营养品。",
+      "tags": [
+        "营养粉",
+        "乳清蛋白",
+        "商家上架"
+      ],
+      "featured": false,
+      "coverTone": "蛋白营养",
+      "coverImage": "/uploads/mall-products/merchant-product-06.png",
+      "images": [
+        "/uploads/mall-products/merchant-product-06.png"
+      ],
+      "createdAt": "2026-04-12T08:07:09.6879947Z",
+      "updatedAt": "2026-04-12T08:07:09.6879947Z"
+    },
+    {
+      "id": "PROD-MALL-MERCHANT-07",
+      "skuCode": "MERCHANT-SKU-0007",
+      "name": "Wocysv 深海鱼油 Omega-3",
+      "brand": "Wocysv",
+      "storeName": "商家上架",
+      "originLabel": "正式商品",
+      "shippingLabel": "现货速配",
+      "promoText": "",
+      "category": "鱼油保健",
+      "unit": "件",
+      "price": 99,
+      "originalPrice": 119,
+      "stock": 50,
+      "sales": 0,
+      "lowStockThreshold": 5,
+      "status": "listed",
+      "summary": "Omega-3 深海鱼油产品。",
+      "description": "来源文件夹：Wocysv深海女性鱼油omega3高EPA纯度成人抗祛痘炎官方店进正品口。",
+      "tags": [
+        "鱼油",
+        "Omega-3",
+        "商家上架"
+      ],
+      "featured": false,
+      "coverTone": "鱼油保健",
+      "coverImage": "/uploads/mall-products/merchant-product-07.png",
+      "images": [
+        "/uploads/mall-products/merchant-product-07.png"
+      ],
+      "createdAt": "2026-04-12T08:07:09.6945321Z",
+      "updatedAt": "2026-04-12T08:07:09.6945321Z"
+    },
+    {
+      "id": "PROD-MALL-MERCHANT-08",
+      "skuCode": "MERCHANT-SKU-0008",
+      "name": "海力生 高纯 EPA 鱼油软胶囊",
+      "brand": "海力生",
+      "storeName": "商家上架",
+      "originLabel": "正式商品",
+      "shippingLabel": "现货速配",
+      "promoText": "",
+      "category": "鱼油保健",
+      "unit": "件",
+      "price": 235,
+      "originalPrice": 259,
+      "stock": 50,
+      "sales": 0,
+      "lowStockThreshold": 5,
+      "status": "listed",
+      "summary": "高纯 EPA 鱼油软胶囊产品。",
+      "description": "来源文件夹：海力生鱼油软胶囊95%高纯度EPA鱼油Omega欧米伽3成人官方旗舰。",
+      "tags": [
+        "鱼油",
+        "EPA",
+        "商家上架"
+      ],
+      "featured": false,
+      "coverTone": "鱼油保健",
+      "coverImage": "/uploads/mall-products/merchant-product-08.png",
+      "images": [
+        "/uploads/mall-products/merchant-product-08.png"
+      ],
+      "createdAt": "2026-04-12T08:07:09.6998313Z",
+      "updatedAt": "2026-04-12T08:07:09.6998313Z"
+    },
+    {
+      "id": "PROD-MALL-MERCHANT-09",
+      "skuCode": "MERCHANT-SKU-0009",
+      "name": "协和 多种维生素矿物质片",
+      "brand": "协和",
+      "storeName": "商家上架",
+      "originLabel": "正式商品",
+      "shippingLabel": "现货速配",
+      "promoText": "",
+      "category": "维生素",
+      "unit": "件",
+      "price": 22.3,
+      "originalPrice": 29,
+      "stock": 49,
+      "sales": 1,
+      "lowStockThreshold": 5,
+      "status": "listed",
+      "summary": "多种维生素矿物质补充产品。",
+      "description": "来源文件夹：协和花北京协和多种维生素矿物质片复合维生素b补充维ce男女通用。",
+      "tags": [
+        "维生素",
+        "矿物质",
+        "商家上架"
+      ],
+      "featured": false,
+      "coverTone": "维生素",
+      "coverImage": "/uploads/mall-products/merchant-product-09.png",
+      "images": [
+        "/uploads/mall-products/merchant-product-09.png"
+      ],
+      "createdAt": "2026-04-12T08:07:09.7028307Z",
+      "updatedAt": "2026-09-20T15:24:56.575Z"
+    },
+    {
+      "id": "PROD-MALL-MERCHANT-10",
+      "skuCode": "MERCHANT-SKU-0010",
+      "name": "复合维生素 B 族矿物质片",
+      "brand": "复合维生素",
+      "storeName": "商家上架",
+      "originLabel": "正式商品",
+      "shippingLabel": "现货速配",
+      "promoText": "",
+      "category": "维生素",
+      "unit": "件",
+      "price": 29,
+      "originalPrice": 39,
+      "stock": 50,
+      "sales": 0,
+      "lowStockThreshold": 5,
+      "status": "listed",
+      "summary": "复合维生素 B 族矿物质补充产品。",
+      "description": "来源文件夹：多种复合维生素片男士女性专用b族b2b12官方旗舰店正品矿物质片F。",
+      "tags": [
+        "维生素B族",
+        "矿物质",
+        "商家上架"
+      ],
+      "featured": false,
+      "coverTone": "维生素",
+      "coverImage": "/uploads/mall-products/merchant-product-10.png",
+      "images": [
+        "/uploads/mall-products/merchant-product-10.png"
+      ],
+      "createdAt": "2026-04-12T08:07:09.7058333Z",
+      "updatedAt": "2026-04-12T08:07:09.7058333Z"
+    }
+  ],
+  "healthManuals": [
+    {
+      "id": "MAN-20260412-01",
+      "title": "放疗科普：头颈放疗常见不良反应与处理",
+      "category": "放疗护理",
+      "coverImage": "/uploads/health-manuals/manual-01-06.jpeg",
+      "images": [
+        {
+          "url": "/uploads/health-manuals/manual-01-01.jpeg",
+          "originalName": "manual-01-01.jpeg"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-01-02.jpeg",
+          "originalName": "manual-01-02.jpeg"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-01-03.jpeg",
+          "originalName": "manual-01-03.jpeg"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-01-04.jpeg",
+          "originalName": "manual-01-04.jpeg"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-01-05.jpeg",
+          "originalName": "manual-01-05.jpeg"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-01-06.jpeg",
+          "originalName": "manual-01-06.jpeg"
+        }
+      ],
+      "pinned": true,
+      "summary": "聚焦皮肤反应、黏膜炎、味觉改变和口干等常见副反应，帮助患者及时识别并处理。",
+      "content": "这篇科普主要围绕头颈放疗期间常见的不良反应展开，重点包括皮肤反应、口腔及咽喉部黏膜炎、味觉改变、食欲不佳、口干、耳毒性，以及下颌关节强直和张口困难。\n\n皮肤反应方面，文章提示病人通常会在治疗二十次左右出现发红、发痒、干性脱屑等情况。日常应穿宽松棉质衣物，避免暴晒、摩擦和刺激性清洁用品，并在医生指导下使用皮肤保护剂。\n\n口腔及咽喉部黏膜炎是头颈放疗最常见的不良反应之一。文章建议避免辛辣、烟酒和粗糙食物，坚持口腔清洁，使用含氟牙膏和漱口液；若疼痛和进食困难明显，应主动联系主管医生评估处理。\n\n味觉改变和口干会进一步影响摄入。文章建议少量多餐，多饮水，优先选择易消化、富含蛋白的食物；治疗期间要尽量避免体重明显下降。\n\n对于耳鸣、听力下降、耳胀痛等问题，以及张口困难、吞咽困难等晚期反应，文中强调要尽早与主管医生联系，并坚持张口、转颈等功能锻炼。放疗结束后仍需按时复查，做好鼻咽冲洗、口腔检查和长期康复训练。",
+      "tags": [
+        "放疗护理",
+        "头颈放疗",
+        "患者宣教"
+      ],
+      "author": "放疗护理团队",
+      "publishedAt": "2026-04-12T09:00:00Z",
+      "updatedAt": "2026-04-12T09:00:00Z"
+    },
+    {
+      "id": "MAN-20260411-02",
+      "title": "中心科普：头颈部肿瘤放疗不良反应及处理",
+      "category": "放疗护理",
+      "coverImage": "/uploads/health-manuals/manual-02-04.png",
+      "images": [
+        {
+          "url": "/uploads/health-manuals/manual-02-01.png",
+          "originalName": "manual-02-01.png"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-02-02.png",
+          "originalName": "manual-02-02.png"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-02-03.png",
+          "originalName": "manual-02-03.png"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-02-04.png",
+          "originalName": "manual-02-04.png"
+        }
+      ],
+      "pinned": false,
+      "summary": "围绕口腔黏膜炎、放射性皮炎和口腔干燥，梳理不同分级的护理与就诊提示。",
+      "content": "这篇文章围绕头颈部肿瘤放疗常见三类问题展开：口腔黏膜炎、放射性皮炎和口腔干燥。\n\n关于口腔黏膜炎，文章指出大多数病人在放化疗期间都会出现不同程度的黏膜损伤。0到1级时重点是保持口腔清洁、勤漱口、多饮水和进软流食；2级时如果疼痛明显，可在医生指导下联合止痛药；3到4级往往伴随感染和明显进食困难，需要尽快回院评估，必要时使用抗感染和营养支持治疗。\n\n对于放射性皮炎，文章提醒这种反应常在放疗三到四周出现，可表现为红斑、疼痛、烧灼感、干燥和脱屑。日常要避免剃须、古龙水、刺激性乳液和紧身高领衣物，尽量穿柔软棉质衣服，温和清洁治疗区域，并注意戒烟，减少皮肤反应加重的风险。\n\n口腔干燥方面，文章建议病人增加饮水，保持口腔湿润，适当使用润唇产品和无刺激含漱方式，避免辛辣、过烫和粗糙食物。如果口干严重影响吞咽、睡眠或进食，应在复诊时主动告知医生。",
+      "tags": [
+        "放疗护理",
+        "头颈放疗",
+        "患者宣教"
+      ],
+      "author": "放疗中心",
+      "publishedAt": "2026-04-11T10:20:00Z",
+      "updatedAt": "2026-04-11T10:20:00Z"
+    },
+    {
+      "id": "MAN-20260410-03",
+      "title": "头颈肿瘤放疗前要做什么准备？平常又该如何护理？",
+      "category": "治疗准备",
+      "coverImage": "/uploads/health-manuals/manual-03-05.png",
+      "images": [
+        {
+          "url": "/uploads/health-manuals/manual-03-02.jpeg",
+          "originalName": "manual-03-02.jpeg"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-03-03.png",
+          "originalName": "manual-03-03.png"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-03-04.jpeg",
+          "originalName": "manual-03-04.jpeg"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-03-05.png",
+          "originalName": "manual-03-05.png"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-03-06.png",
+          "originalName": "manual-03-06.png"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-03-07.jpeg",
+          "originalName": "manual-03-07.jpeg"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-03-08.png",
+          "originalName": "manual-03-08.png"
+        }
+      ],
+      "pinned": false,
+      "summary": "从放疗前牙齿准备、口腔照护到日常护理切入，帮助患者在治疗前把关键事项准备充分。",
+      "content": "这篇文章主要讲放疗前准备和日常护理，重点是先把治疗前能做的准备做扎实，尽量减轻后续副反应。\n\n第一部分是放疗前牙齿准备。文章强调放疗前要重点检查口腔和牙齿情况，处理龋齿、残根和不合适的金属牙套，必要时在拔牙后一周以上再进入放疗。因为头颈放疗会影响唾液分泌和口腔自洁能力，治疗前把牙齿问题处理好非常关键。\n\n第二部分是放疗期间口腔照护。文章提到，放疗常见副作用包括口腔疼痛、黏膜红肿、口干、味觉障碍和进食困难。日常要保持口腔清洁，多喝水，使用软毛牙刷，避免辛辣、过烫和粗糙食物，尽量选择温软、易吞咽的饮食。\n\n第三部分是平时护理与观察。病人和家属要留意疼痛、进食量、体重变化以及是否出现继发感染征象。如果出现持续疼痛、明显溃疡、发热、吞咽困难加重或无法正常进食，应尽快联系医生处理。",
+      "tags": [
+        "治疗准备",
+        "头颈放疗",
+        "患者宣教"
+      ],
+      "author": "头颈放疗门诊",
+      "publishedAt": "2026-04-10T15:30:00Z",
+      "updatedAt": "2026-04-10T15:30:00Z"
+    },
+    {
+      "id": "MAN-20260409-04",
+      "title": "头颈部肿瘤放疗知多少",
+      "category": "复诊随访",
+      "coverImage": "/uploads/health-manuals/manual-04-08.png",
+      "images": [
+        {
+          "url": "/uploads/health-manuals/manual-04-03.png",
+          "originalName": "manual-04-03.png"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-04-04.png",
+          "originalName": "manual-04-04.png"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-04-05.png",
+          "originalName": "manual-04-05.png"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-04-06.png",
+          "originalName": "manual-04-06.png"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-04-07.png",
+          "originalName": "manual-04-07.png"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-04-08.png",
+          "originalName": "manual-04-08.png"
+        }
+      ],
+      "pinned": false,
+      "summary": "覆盖放疗前处理、治疗中应对和放疗后随访，适合病人和家属整体了解治疗周期。",
+      "content": "这篇内容按“放疗前、放疗中、放疗后”三个阶段梳理了重点事项。\n\n放疗前，文章建议做好口腔准备，拔除松动或严重龋坏牙齿，保持口腔卫生；同时要提前进行营养储备，选择高蛋白、高维生素、易消化饮食，并保持充足饮水。\n\n放疗中，文章重点提醒五件事：第一是皮肤护理，避免摩擦、抓挠、酒精和刺激性药物；第二是口腔卫生，坚持淡盐水或抑菌漱口水含漱；第三是鼻腔清洁，使用生理盐水温和冲洗，防止出血和感染；第四是耳部问题出现后不要自行掏耳，要及时就医；第五是张口训练和转颈训练要长期坚持，帮助预防关节僵硬和纤维化。\n\n放疗后，文章给出了比较清晰的随访建议：前两年每三个月一次，三到五年每六个月一次，之后每年一次。同时强调放疗后三年尽量避免拔牙，若出现口干、中耳炎、吞咽问题或其他异常不适，要及时联系主管医生。",
+      "tags": [
+        "复诊随访",
+        "头颈放疗",
+        "患者宣教"
+      ],
+      "author": "放疗随访团队",
+      "publishedAt": "2026-04-09T08:40:00Z",
+      "updatedAt": "2026-04-09T08:40:00Z"
+    },
+    {
+      "id": "MAN-20260408-05",
+      "title": "头颈部放疗知识知多少？做好这些，让治疗更顺利",
+      "category": "康复指导",
+      "coverImage": "/uploads/health-manuals/manual-05-14.png",
+      "images": [
+        {
+          "url": "/uploads/health-manuals/manual-05-01.png",
+          "originalName": "manual-05-01.png"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-05-02.png",
+          "originalName": "manual-05-02.png"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-05-03.png",
+          "originalName": "manual-05-03.png"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-05-04.png",
+          "originalName": "manual-05-04.png"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-05-05.png",
+          "originalName": "manual-05-05.png"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-05-06.png",
+          "originalName": "manual-05-06.png"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-05-07.png",
+          "originalName": "manual-05-07.png"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-05-08.png",
+          "originalName": "manual-05-08.png"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-05-09.png",
+          "originalName": "manual-05-09.png"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-05-10.png",
+          "originalName": "manual-05-10.png"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-05-11.png",
+          "originalName": "manual-05-11.png"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-05-12.png",
+          "originalName": "manual-05-12.png"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-05-13.png",
+          "originalName": "manual-05-13.png"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-05-14.png",
+          "originalName": "manual-05-14.png"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-05-15.png",
+          "originalName": "manual-05-15.png"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-05-16.png",
+          "originalName": "manual-05-16.png"
+        },
+        {
+          "url": "/uploads/health-manuals/manual-05-17.png",
+          "originalName": "manual-05-17.png"
+        }
+      ],
+      "pinned": false,
+      "summary": "系统整理皮肤护理、口腔护理、口干应对、营养支持和心理护理等放疗全过程要点。",
+      "content": "这篇文章更像一份完整的放疗期护理总览，适合病人和家属系统阅读。\n\n文章首先强调皮肤护理是头颈放疗期间的第一道防线。日常应保持照射区域清洁干燥，避免暴晒、冷热刺激和衣物摩擦，任何护肤品和药膏都要在医生指导下使用。\n\n口腔护理方面，文章建议坚持饭后和睡前漱口，尽量选择温软、少刺激、易吞咽的饮食，并注意使用软毛牙刷保护牙龈和牙齿，减少黏膜损伤。\n\n对于口干问题，文章提醒不要等渴了才喝水，要少量多次补水；干硬食物要改成软食或泥糊状，避免呛咳。营养支持方面，重点是保证优质蛋白、维生素和足够能量摄入，必要时在医生指导下使用营养补充剂。\n\n文章还专门提到心理护理和家属支持的重要性。病人可以通过与医护沟通、家属陪伴、听音乐和散步等方式减轻焦虑。放疗结束后，护理并不会立刻结束，口腔、皮肤、饮食和复查仍需要继续坚持一段时间。",
+      "tags": [
+        "康复指导",
+        "头颈放疗",
+        "患者宣教"
+      ],
+      "author": "康复管理团队",
+      "publishedAt": "2026-04-08T14:10:00Z",
+      "updatedAt": "2026-04-08T14:10:00Z"
+    }
+  ]
+}

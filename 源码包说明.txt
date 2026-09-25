@@ -1,0 +1,11 @@
+﻿源码包说明
+
+本源码包包含：
+- 头颈部肿瘤放疗决策与预后管理系统：前端、Node.js 本地服务、启动/停止脚本
+- brain_gtv_system：轮廓勾画 Python 子服务源码
+- dose_prediction_system：剂量预测 Python 子服务源码
+
+已排除：上传文件、运行日志、输出结果、Python 缓存、聊天/业务数据、AI 配置等非源码或可能包含隐私/密钥的文件。
+
+本地启动主程序：
+powershell -ExecutionPolicy Bypass -File .\头颈部肿瘤放疗决策与预后管理系统\start-local.ps1

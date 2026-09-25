@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="./assets/brand/gbm-deepneuro-treg-favicon.png">
+  <title>巾帼智放疗·同心护头颈——头颈肿瘤放疗决策与预后管理系统</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css?v=20260708-treatment-advice-flat1">
+  <link rel="stylesheet" href="./health-mall-module.css?v=20260511-blue-rebrand1">
+  <link rel="stylesheet" href="./doctor-tools-native.css?v=20260708-doctor-tool-proxy1">
+  <link rel="stylesheet" href="./presentation-polish.css?v=20260511-escort-compact2">
+</head>
+<body>
+  <div class="page-backdrop" aria-hidden="true">
+    <span class="bg-orb orb-one"></span>
+    <span class="bg-orb orb-two"></span>
+    <span class="bg-orb orb-three"></span>
+    <span class="bg-grid"></span>
+    <span class="bg-wave"></span>
+  </div>
+
+  <main class="login-stage" id="loginView">
+    <section class="login-panel">
+      <div class="login-visual" aria-hidden="true">
+        <div class="login-visual-head">
+          <span class="login-visual-mark has-logo"><img class="brand-logo-image" src="./assets/brand/gbm-deepneuro-treg-logo.png" alt="巾帼智放疗·同心护头颈——头颈肿瘤放疗决策与预后管理系统"></span>
+          <div>
+            <span>RADIOTHERAPY SUITE</span>
+            <strong>巾帼智放疗·同心护头颈——头颈肿瘤放疗决策与预后管理系统</strong>
+          </div>
+        </div>
+        <div class="login-visual-board">
+          <div class="login-visual-board-head">
+            <span>MDT FLOW</span>
+            <b>98%</b>
+          </div>
+          <div class="login-visual-line line-one"></div>
+          <div class="login-visual-line line-two"></div>
+          <div class="login-visual-line line-three"></div>
+          <div class="login-visual-steps">
+            <span>&#30149;&#20363;&#24314;&#26723;</span>
+            <span>AI &#25918;&#30103;&#20915;&#31574;</span>
+            <span>&#38543;&#35775;&#31649;&#29702;</span>
+          </div>
+        </div>
+        <div class="login-visual-foot">
+          <span>RT</span>
+          <span>GTV</span>
+          <span>FOLLOW-UP</span>
+        </div>
+      </div>
+      <div class="login-topbar">
+        <div>
+          <p class="eyebrow">欢迎登录</p>
+          <h1>巾帼智放疗·同心护头颈——头颈肿瘤放疗决策与预后管理系统</h1>
+        </div>
+        <div class="status-chip">安全连接中</div>
+      </div>
+
+      <div class="role-switch" role="tablist" aria-label="选择账号类型">
+        <button class="role-tab" type="button" data-role="patient">病人登录</button>
+        <button class="role-tab active" type="button" data-role="doctor">医生登录</button>
+      </div>
+
+      <form class="login-form" id="loginForm">
+        <label class="field">
+          <span id="accountLabel">医生账号</span>
+          <input id="username" name="username" type="text" autocomplete="username" placeholder="请输入医生账号">
+        </label>
+
+        <label class="field">
+          <span>登录密码</span>
+          <input id="password" name="password" type="password" autocomplete="current-password" placeholder="请输入登录密码">
+        </label>
+
+        <div class="form-meta">
+          <label class="remember-box">
+            <input id="rememberLogin" type="checkbox" checked>
+            <span>记住登录状态</span>
+          </label>
+        </div>
+
+        <button class="submit-button" type="submit">进入系统</button>
+      </form>
+
+      <p class="message-box" id="messageBox" aria-live="polite" hidden></p>
+    </section>
+  </main>
+
+  <section class="app-shell" id="appShell" hidden>
+    <header class="system-topbar">
+      <div class="topbar-brand">
+        <span class="topbar-brand-badge has-logo"><img class="brand-logo-image" src="./assets/brand/gbm-deepneuro-treg-logo.png" alt="巾帼智放疗·同心护头颈——头颈肿瘤放疗决策与预后管理系统"></span>
+        <div class="topbar-brand-copy">
+          <h1>巾帼智放疗·同心护头颈——头颈肿瘤放疗决策与预后管理系统</h1>
+        </div>
+        <p id="topbarSubtitle">医生管理端 / 病人服务端</p>
+      </div>
+
+      <div class="topbar-actions">
+        <div class="topbar-user">
+          <div class="topbar-avatar" id="headerUserAvatar">医</div>
+          <div class="topbar-user-copy">
+            <strong id="headerUserName">张明炜</strong>
+            <span id="headerUserMeta">医生端</span>
+          </div>
+        </div>
+        <button class="topbar-button" id="logoutButton" type="button">退出</button>
+      </div>
+    </header>
+
+    <div class="system-body">
+      <aside class="sidebar">
+        <p class="sidebar-label">系统模块</p>
+        <div class="menu-list" id="menuList"></div>
+      </aside>
+
+      <main class="app-main">
+        <section class="page-crumb-card">
+          <span id="appKicker">医生端</span>
+          <em>/</em>
+          <strong id="appTitle">病人信息管理</strong>
+        </section>
+
+        <div class="page-summary-row">
+          <div class="metric-list" id="metricList"></div>
+          <button class="primary-action" id="pageActionButton" type="button">新增病人</button>
+        </div>
+
+        <div class="app-notice" id="appNotice" hidden></div>
+
+        <section class="page-panel" id="moduleContent"></section>
+      </main>
+    </div>
+  </section>
+
+  <div class="modal-overlay" id="modalOverlay" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <h3 id="modalTitle">弹窗</h3>
+        <button class="modal-close" id="modalClose" type="button" aria-label="关闭">×</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+<script src="./script.js?v=20260708-treatment-advice-flat1"></script>
+  <script src="./doctor-tools-native.js?v=20260708-doctor-tool-proxy1"></script>
+  <script src="./health-mall-module.js?v=20260511-blue-rebrand1"></script>
+</body>
+</html>
+

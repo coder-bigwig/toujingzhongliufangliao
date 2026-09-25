@@ -1,0 +1,15 @@
+{
+  "case_id": "700_0704728",
+  "profile_id": "balanced_v1",
+  "result_name": "700_0704728_balanced_v1_96f10bda",
+  "result_url": "/result/700_0704728_balanced_v1_96f10bda",
+  "overlay_url": "/outputs/web/700_0704728_balanced_v1_96f10bda/overlay.png",
+  "prediction_file_url": "/outputs/web/700_0704728_balanced_v1_96f10bda/prediction.nii.gz",
+  "probability_file_url": "/outputs/web/700_0704728_balanced_v1_96f10bda/probability.nii.gz",
+  "metrics": {
+    "dice": 0.9633083249880978,
+    "lesion_recall": 1.0,
+    "hd95_mm": 1.9445436000823975
+  },
+  "archived": true
+}
